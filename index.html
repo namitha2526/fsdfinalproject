@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5-Star Hotel Menu</title>
+    <style>
+        /* Global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Body styles */
+        body {
+            background-color: #3E2723; /* Deep brown */
+            color: #FAFAFA; /* Light text */
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: #5D4037; /* Chocolate brown */
+            color: #FFD54F; /* Golden yellow */
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px #000;
+        }
+
+        header p {
+            font-size: 1.5rem;
+        }
+
+        /* Menu Section */
+        section.menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .menu-item {
+            background-color: #FFF8E1; /* Light cream */
+            border: 1px solid #E0E0E0;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 300px;
+            margin: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .menu-item .content {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .menu-item h3 {
+            font-size: 1.8rem;
+            color: #D84315; /* Burnt orange */
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item p {
+            font-size: 1rem;
+            color: #5D4037; /* Chocolate brown */
+        }
+
+        .menu-item .price {
+            font-size: 1.4rem;
+            color: #FF7043; /* Coral orange */
+            font-weight: bold;
+        }
+
+        .menu-item .currency {
+            color: #1B5E20; /* Forest green */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #5D4037;
+            color: #FFD54F;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            section.menu {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .menu-item {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>5-Star Hotel Menu</h1>
+    <img src="https://th.bing.com/th/id/R.a4523098a29319ae4d3a97af9052879c?rik=HK0yU0YyfrW1gA&riu=http%3a%2f%2fjfwonline.com%2fwp-content%2fuploads%2f2016%2f05%2fIndia-Food-JFW-magazine.jpg&ehk=2fep2BJUHns4HRELbvFgE6avYlEW1Vwo7XEn4fef2gY%3d&risl=&pid=ImgRaw&r=0" alt="hotell">
+    <p>Indulge in Our Exquisite Indian Dishes</p>
+</header>
+
+<section class="menu">
+    <div class="menu-item">
+        <img src="https://masalaandchai.com/wp-content/uploads/2022/03/Butter-Chicken.jpg" alt="Butter Chicken">
+        <div class="content">
+            <h3>Butter Chicken</h3>
+            <p>Delicious creamy chicken cooked in a buttery tomato gravy.</p>
+            <p class="price">₹450</p>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <img src="https://th.bing.com/th/id/R.5ecb9c2a7805690feef3e9273a63139f?rik=Q%2bSfcEGskJ6HRA&riu=http%3a%2f%2fyourcookingpal.com%2fwp-content%2fuploads%2f2016%2f09%2fPaneer-tikkafinal.jpg&ehk=8jvZuuw6YV371YoSB6jZgzSYw4%2b2mvneb8YuDywwef0%3d&risl=&pid=ImgRaw&r=0" alt="Paneer Tikka">
+        <div class="content">
+            <h3>Paneer Tikka</h3>
+            <p>Grilled cottage cheese marinated in spices and yogurt.</p>
+            <p class="price">₹350</p>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <img src="https://th.bing.com/th/id/OIP.l62xwzjz4Hd3ueArOt4lugHaHa?rs=1&pid=ImgDetMain" alt="Hyderabadi Biryani">
+        <div class="content">
+            <h3>Hyderabadi Biryani</h3>
+            <p>Fragrant basmati rice cooked with spices and tender meat.</p>
+            <p class="price">₹550</p>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <img src="https://1.bp.blogspot.com/-XLpR9dpE_yc/XdDVk7NAffI/AAAAAAAAX6w/SrO8wxdgwUU0k3_MFQYv6JkIfC35HrQ7ACLcBGAsYHQ/s1600/gulab%2Bjamun%2B10.JPG" alt="Gulab Jamun">
+        <div class="content">
+            <h3>Gulab Jamun</h3>
+            <p>Soft, syrupy Indian dessert made with milk solids.</p>
+            <p class="price">₹150</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 5-Star Hotel | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
