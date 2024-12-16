@@ -134,6 +134,7 @@
             <h3>Tandoori Roti</h3>
             <p>Soft and extremely thin Tandoori roti!.</p>
             <p class="price">₹35</p>
+            <button class="add-to-cart">Add to Cart</button>
         </div>
     </div>
     <div class="menu-item">
@@ -142,6 +143,7 @@
             <h3>Rumali Roti</h3>
             <p>Soft and extremely thin Rumali roti!.</p>
             <p class="price">₹55</p>
+            <button class="add-to-cart">Add to Cart</button>
         </div>
     </div>
            <div class="menu-item">
@@ -150,6 +152,7 @@
             <h3>Naan</h3>
             <p>Super Soft and crispy Naan!.</p>
             <p class="price">₹65</p>
+            <button class="add-to-cart">Add to Cart</button>
         </div>
     </div>
           <div class="menu-item">
@@ -158,6 +161,7 @@
             <h3>Garlic Naan</h3>
             <p>Super Soft and crispy Garlic Naan!.</p>
             <p class="price">₹75</p>
+            <button class="add-to-cart">Add to Cart</button>
         </div>
     </div>
      </section>
@@ -169,6 +173,7 @@
             <h3>Paneer Tikka</h3>
             <p>Grilled cottage cheese marinated in spices and yogurt.</p>
             <p class="price">₹150</p>
+            <button class="add-to-cart">Add to Cart</button>
         </div>
     </div>
           <div class="menu-item">
@@ -177,6 +182,7 @@
                 <h3>Veg sabji</h3>
                 <p>Tasty Veg sabji!.</p>
                 <p class="price">₹110</p>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
          </div>
          <div class="menu-item">
@@ -185,6 +191,7 @@
                 <h3>Paneer khadai</h3>
                 <p>Tasty Paneer khadai!.</p>
                 <p class="price">₹120</p>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
          </div>
           <div class="menu-item">
@@ -193,6 +200,7 @@
                 <h3>Paneer Butter masala</h3>
                 <p>Tasty Paneer butter masala!.</p>
                 <p class="price">₹150</p>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
          </div>
         
@@ -202,6 +210,7 @@
                 <h3>Paneer Fried Rice</h3>
                 <p>Schezwan paneer fried rice with Szechuan sauce and cottage cheese cubes.</p>
                 <p class="price">₹180</p>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
     </div>
        <div class="menu-item">
@@ -210,6 +219,7 @@
             <h3>Veg Biriyani</h3>
             <p>Delicious mouth watering Veg Biriyani!.</p>
             <p class="price">₹200</p>
+            <button class="add-to-cart">Add to Cart</button>
         </div>
     </div>
                 <div class="menu-item">
@@ -218,6 +228,7 @@
                 <h3>Paneer biriyani</h3>
                 <p>Yummy Paneer biriyani with veggies and spices.</p>
                 <p class="price">₹280</p>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
     </div>
     </section>
@@ -229,6 +240,7 @@
         <h3>Egg budji</h3>
         <p>One pot delicious Egg budji made Eggs, spices & herbs.</p>
         <p class="price">₹150</p>
+        <button class="add-to-cart">Add to Cart</button>
     </div>
 </div>
         <div class="menu-item">
@@ -237,6 +249,7 @@
         <h3>Egg gravy</h3>
         <p>One pot delicious Egg gravy made Eggs, spices & herbs.</p>
         <p class="price">₹180</p>
+        <button class="add-to-cart">Add to Cart</button>
     </div>
 </div>
     <div class="menu-item">
@@ -245,6 +258,7 @@
         <h3>Butter chicken</h3>
         <p>One pot delicious Butter chicken made fresh chicken, spices & herbs.</p>
         <p class="price">₹210</p>
+        <button class="add-to-cart">Add to Cart</button>
     </div>
 </div>
         <div class="menu-item">
@@ -253,6 +267,7 @@
         <h3>Egg Dum Biryani</h3>
         <p>One pot delicious egg biryani made with basmati rice, boiled eggs, spices & herbs.</p>
         <p class="price">₹350</p>
+        <button class="add-to-cart">Add to Cart</button>
     </div>
 </div>
         <div class="menu-item">
@@ -261,6 +276,7 @@
             <h3>Butter Chicken</h3>
             <p>Delicious creamy chicken cooked in a buttery tomato gravy.</p>
             <p class="price">₹450</p>
+            <button class="add-to-cart">Add to Cart</button>
         </div>
     </div>
           <div class="menu-item">
@@ -269,12 +285,76 @@
             <h3>Mutton Dum Biryani</h3>
             <p>Hyderabad Bawarchi Style Mutton Dum Biryani.</p>
             <p class="price">₹500</p>
+            <button class="add-to-cart">Add to Cart</button>
         </div>
 </div>
 
 
 
 </section>
+    <h2>Your Cart</h2>
+<section id="cart-section">
+    <ul id="cart-list">
+        <!-- Cart items will appear here -->
+    </ul>
+    <p id="cart-total">Total: ₹0</p>
+</section>
+<footer>
+    <p>&copy; 2024 5-Star Hotel | All Rights Reserved</p>
+</footer>
+<script>
+// Cart array to store added items
+let cart = [];
+
+// Function to add item to the cart
+function addToCart(itemName, itemPrice) {
+    // Create an object for the item
+    const item = {
+        name: itemName,
+        price: itemPrice
+    };
+
+    // Add item to the cart
+    cart.push(item);
+    updateCart();
+}
+
+// Function to update the cart display
+function updateCart() {
+    const cartList = document.getElementById('cart-list');
+    const cartTotal = document.getElementById('cart-total');
+
+    // Clear the current list
+    cartList.innerHTML = '';
+
+    // Add each item to the cart display
+    cart.forEach((item, index) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = ${item.name} - ₹${item.price};
+        cartList.appendChild(listItem);
+    });
+
+    // Calculate total price
+    const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+
+    // Update total price
+    cartTotal.textContent = Total: ₹${totalPrice};
+}
+
+// Event listener for all "Add to Cart" buttons
+document.querySelectorAll('.add-to-cart').forEach((button) => {
+    button.addEventListener('click', function () {
+        const itemName = this.parentElement.querySelector('h3').textContent;  // Get item name
+        const itemPrice = parseInt(this.parentElement.querySelector('.price').textContent.replace('₹', ''));  // Get item price
+        
+        // Call addToCart function with the correct parameters
+        addToCart(itemName, itemPrice);
+    });
+});
+</script>
+
+</body>
+</html>
 
 <footer>
     <p>&copy; 2024 5-Star Hotel | All Rights Reserved</p>
