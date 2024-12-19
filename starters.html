@@ -404,54 +404,36 @@
     </footer>
 
 <script>
-// Cart array to store added items
-let cart = [];
+      let cart = []; // Array to store cart items
 
-// Function to add item to the cart
+// Function to add items to the cart
 function addToCart(itemName, itemPrice) {
-    // Create an object for the item
-    const item = {
-        name: itemName,
-        price: itemPrice
-    };
-
-    // Add item to the cart
+    const item = { name: itemName, price: itemPrice };
     cart.push(item);
-    updateCart();
+    updateCart(); // Update the UI after adding
 }
 
-// Function to update the cart display
+// Function to update cart display
 function updateCart() {
     const cartList = document.getElementById('cart-list');
     const cartTotal = document.getElementById('cart-total');
 
-    // Clear the current list
+    // Clear the previous items
     cartList.innerHTML = '';
 
-    // Add each item to the cart display
-    cart.forEach((item, index) => {
-        const listItem = document.createElement('li');
-        listItem.textContent =` ${item.name} - ₹${item.price}`;
-        cartList.appendChild(listItem);
+    let total = 0;
+
+    // Render the current items
+    cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name} - ₹${item.price}`;
+        cartList.appendChild(li);
+        total += item.price;
     });
 
-    // Calculate total price
-    const totalPrice = cart.reduce((total, item) => total + item.price, 0);
-
-    // Update total price
-    cartTotal.textContent =` Total: ₹${totalPrice}`;
+    // Update the total price in the UI
+    cartTotal.textContent =` Total: ₹${total}`;
 }
-
-// Event listener for all "Add to Cart" buttons
-document.querySelectorAll('.add-to-cart').forEach((button) => {
-    button.addEventListener('click', function () {
-        const itemName = this.parentElement.querySelector('h3').textContent;  // Get item name
-        const itemPrice = parseInt(this.parentElement.querySelector('.price').textContent.replace('₹', ''));  // Get item price
-        
-        // Call addToCart function with the correct parameters
-        addToCart(itemName, itemPrice);
-    });
-});
 </script>
 </body>
 </html>
