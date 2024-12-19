@@ -335,18 +335,27 @@
         cartTotal.textContent = `Total: ₹${totalPrice}`;
     }
 
-    // Wait for the DOM to be fully loaded before attaching event listeners
-    document.addEventListener('DOMContentLoaded', () => {
-        // Event listener for all "Add to Cart" buttons
+    // Function to attach event listeners
+    function initializeCartListeners() {
+        // Remove existing event listeners before attaching new ones
         document.querySelectorAll('.add-to-cart').forEach((button) => {
-            button.addEventListener('click', function () {
-                const itemName = this.parentElement.querySelector('h3').textContent.trim(); // Get item name
-                const itemPrice = parseInt(this.parentElement.querySelector('.price').textContent.replace('₹', '').trim()); // Get item price
-
-                // Call addToCart function with the correct parameters
-                addToCart(itemName, itemPrice);
-            });
+            button.removeEventListener('click', handleAddToCart); // Ensure no duplicate listeners
+            button.addEventListener('click', handleAddToCart); // Attach listener
         });
+    }
+
+    // Event handler for "Add to Cart" button
+    function handleAddToCart() {
+        const itemName = this.parentElement.querySelector('h3').textContent.trim(); // Get item name
+        const itemPrice = parseInt(this.parentElement.querySelector('.price').textContent.replace('₹', '').trim()); // Get item price
+
+        // Call addToCart function with the correct parameters
+        addToCart(itemName, itemPrice);
+    }
+
+    // Wait for the DOM to be fully loaded before initializing
+    document.addEventListener('DOMContentLoaded', () => {
+        initializeCartListeners(); // Attach event listeners
     });
 </script>
 
