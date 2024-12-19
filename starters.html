@@ -404,7 +404,8 @@
     </footer>
 
 <script>
-     let cart = [];
+// Cart array to store added items
+let cart = [];
 
 // Function to add item to the cart
 function addToCart(itemName, itemPrice) {
@@ -438,7 +439,7 @@ function updateCart() {
     const totalPrice = cart.reduce((total, item) => total + item.price, 0);
 
     // Update total price
-    cartTotal.textContent = Total: ₹${totalPrice};
+    cartTotal.textContent =` Total: ₹${totalPrice}`;
 }
 
 // Event listener for all "Add to Cart" buttons
