@@ -297,68 +297,36 @@
 </footer>
 
 <script>
-    // Cart array to store added items
-    let cart = [];
+      let cart = []; // Array to store cart items
 
-    // Function to add item to the cart
-    function addToCart(itemName, itemPrice) {
-        // Create an object for the item
-        const item = {
-            name: itemName,
-            price: itemPrice
-        };
+// Function to add items to the cart
+function addToCart(itemName, itemPrice) {
+    const item = { name: itemName, price: itemPrice };
+    cart.push(item);
+    updateCart(); // Update the UI after adding
+}
 
-        // Add item to the cart
-        cart.push(item);
-        updateCart();
-    }
+// Function to update cart display
+function updateCart() {
+    const cartList = document.getElementById('cart-list');
+    const cartTotal = document.getElementById('cart-total');
 
-    // Function to update the cart display
-    function updateCart() {
-        const cartList = document.getElementById('cart-list');
-        const cartTotal = document.getElementById('cart-total');
+    // Clear the previous items
+    cartList.innerHTML = '';
 
-        // Clear the current list
-        cartList.innerHTML = '';
+    let total = 0;
 
-        // Add each item to the cart display
-        cart.forEach((item) => {
-            const listItem = document.createElement('li');
-            listItem.textContent = `${item.name} - ₹${item.price}`;
-            cartList.appendChild(listItem);
-        });
-
-        // Calculate total price
-        const totalPrice = cart.reduce((total, item) => total + item.price, 0);
-
-        // Update total price
-        cartTotal.textContent = `Total: ₹${totalPrice}`;
-    }
-
-    // Function to attach event listeners
-    function initializeCartListeners() {
-        // Remove existing event listeners before attaching new ones
-        document.querySelectorAll('.add-to-cart').forEach((button) => {
-            button.removeEventListener('click', handleAddToCart); // Ensure no duplicate listeners
-            button.addEventListener('click', handleAddToCart); // Attach listener
-        });
-    }
-
-    // Event handler for "Add to Cart" button
-    function handleAddToCart() {
-        const itemName = this.parentElement.querySelector('h3').textContent.trim(); // Get item name
-        const itemPrice = parseInt(this.parentElement.querySelector('.price').textContent.replace('₹', '').trim()); // Get item price
-
-        // Call addToCart function with the correct parameters
-        addToCart(itemName, itemPrice);
-    }
-
-    // Wait for the DOM to be fully loaded before initializing
-    document.addEventListener('DOMContentLoaded', () => {
-        initializeCartListeners(); // Attach event listeners
+    // Render the current items
+    cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = ${item.name} - ₹${item.price};
+        cartList.appendChild(li);
+        total += item.price;
     });
+
+    // Update the total price in the UI
+    cartTotal.textContent = Total: ₹${total};
+}
 </script>
-
-
 </body>
 </html>
