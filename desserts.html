@@ -319,13 +319,13 @@ function updateCart() {
     // Render the current items
     cart.forEach(item => {
         const li = document.createElement('li');
-        li.textContent = ${item.name} - ₹${item.price};
+        li.textContent = `${item.name} - ₹${item.price}`;
         cartList.appendChild(li);
         total += item.price;
     });
 
     // Update the total price in the UI
-    cartTotal.textContent = Total: ₹${total};
+    cartTotal.textContent =` Total: ₹${total}`;
 }
 </script>
 </body>
